@@ -32,3 +32,59 @@ Cosmic Health Navigator est une plateforme de surveillance environnementale avan
 ### Animations
 - **Framer Motion 12.23.22** - Animations et transitions
 - **Lucide React** - Icônes modernes
+
+## ☁️ Infrastructure Overview
+
+Cosmic Health Navigator relies on a robust **AWS Cloud architecture** to ensure scalability, reliability, and real-time performance. The infrastructure processes environmental data from multiple sources, transforms it into valuable insights, and makes it available through APIs and an interactive frontend.
+
+### 🔗 Source Data
+
+*   **NASA** – Earth observation data
+    
+*   **NASA FIRMS** – Fire Information for Resource Management System
+    
+*   **USGS Landsat** – Satellite imagery
+    
+*   **NOAA** – Weather and atmospheric data
+    
+
+### 🗄️ Store, Ingest and Backup
+
+*   **Amazon S3 Data Lake** – Central storage for raw and processed data
+    
+*   **Amazon Kinesis Data Streams** – Real-time data ingestion
+    
+*   **AWS Lambda (Custom Code)** – Serverless data transformation
+    
+*   **AWS Glue** – Managed ETL service for structured transformations
+    
+
+### 📊 Value Layer
+
+*   **Amazon Athena** – Interactive SQL queries on S3
+    
+*   **Amazon Redshift** – Scalable data warehouse
+    
+*   **Amazon SageMaker** – Machine Learning model training and deployment
+    
+
+### 📡 Monitoring
+
+*   **Amazon CloudWatch** – Metrics and logs monitoring
+    
+*   **Amazon SNS** – Notifications and alerts
+    
+*   **Amazon EventBridge** – Event-driven integration
+    
+
+### ⚙️ API Layer
+
+*   **Amazon API Gateway** – Secure API exposure
+    
+*   **AWS AppSync** – Managed GraphQL API for real-time data
+    
+*   **AWS Lambda** – Backend logic execution
+    
+*   **AWS Cognito** – Authentication and user management
+    
+*   **Amazon DynamoDB** – Fast and scalable NoSQL database
