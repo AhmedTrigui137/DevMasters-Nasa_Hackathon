@@ -4,7 +4,6 @@ import {
   Filter,
   Rocket,
   Zap,
-  Sparkles,
   Star,
   Users,
 } from "lucide-react";

@@ -49,4 +49,4 @@ export interface RiskZone {
 export interface FilterState {
   ageGroup: string;
   asthmaSeverity: string;
-}</parameter>
+}

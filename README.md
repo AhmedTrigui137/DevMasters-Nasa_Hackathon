@@ -32,3 +32,23 @@ Cosmic Health Navigator est une plateforme de surveillance environnementale avan
 ### Animations
 - **Framer Motion 12.23.22** - Animations et transitions
 - **Lucide React** - Icônes modernes
+
+## Backend / Database
+
+- The backend is a FastAPI app in `backend/`. It supports Postgres (Supabase) via the `DATABASE_URL` env var.
+- Copy `.env.example` to `.env` and set `DATABASE_URL` (for Supabase use the provided connection string in your Supabase project).
+- For local development you can run a Postgres container (see `docker-compose.yml`) or point `DATABASE_URL` to your Supabase DB.
+
+Migrations
+---------
+
+Alembic is included in `backend/requirements.txt`. A minimal `backend/alembic` scaffold exists; you should update `backend/alembic/env.py` to match your setup, then run:
+
+```bash
+cd backend
+pip install -r requirements.txt
+alembic revision --autogenerate -m "initial"
+alembic upgrade head
+```
+
+If you want me to fully scaffold Alembic for async SQLModel + asyncpg, I can add the complete config and initial migration.

@@ -6,7 +6,7 @@ import * as THREE from 'three';
 const StarField: React.FC = () => {
   const ref = useRef<THREE.Points>(null);
   
-  const [positions, colors] = useMemo(() => {
+  const [positions, _colors] = useMemo(() => {
     const positions = new Float32Array(8000 * 3); // Augmenté de 5000 à 8000 étoiles
     const colors = new Float32Array(8000 * 3);
     
@@ -52,7 +52,7 @@ const StarField: React.FC = () => {
     return [positions, colors];
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (ref.current) {
       ref.current.rotation.x -= delta / 25;
       ref.current.rotation.y -= delta / 35;
