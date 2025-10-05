@@ -33,58 +33,72 @@ Cosmic Health Navigator est une plateforme de surveillance environnementale avan
 - **Framer Motion 12.23.22** - Animations et transitions
 - **Lucide React** - Icônes modernes
 
-## ☁️ Infrastructure Overview
+##☁️ **Infrastructure Overview**
+------------------------------
 
-Cosmic Health Navigator relies on a robust **AWS Cloud architecture** to ensure scalability, reliability, and real-time performance. The infrastructure processes environmental data from multiple sources, transforms it into valuable insights, and makes it available through APIs and an interactive frontend.
+This architecture showcases a complete Azure-based data processing and analytics pipeline designed to collect, store, transform, analyze, and serve environmental data from multiple scientific sources.
 
-### 🔗 Source Data
+### **🔹 Source Data**
 
-*   **NASA** – Earth observation data
-    
-*   **NASA FIRMS** – Fire Information for Resource Management System
-    
-*   **USGS Landsat** – Satellite imagery
-    
-*   **NOAA** – Weather and atmospheric data
-    
+The system ingests raw data from trusted environmental and scientific organizations such as:
 
-### 🗄️ Store, Ingest and Backup
-
-*   **Amazon S3 Data Lake** – Central storage for raw and processed data
+*   **NASA**
     
-*   **Amazon Kinesis Data Streams** – Real-time data ingestion
+*   **NASA FIRMS**
     
-*   **AWS Lambda (Custom Code)** – Serverless data transformation
+*   **USGS Landsat**
     
-*   **AWS Glue** – Managed ETL service for structured transformations
+*   **NOAA**
     
 
-### 📊 Value Layer
+### **🔹 Store, Ingest, and Backup**
 
-*   **Amazon Athena** – Interactive SQL queries on S3
-    
-*   **Amazon Redshift** – Scalable data warehouse
-    
-*   **Amazon SageMaker** – Machine Learning model training and deployment
-    
+All incoming data is centralized in **Azure Data Lake**, serving as the core data repository.Data transformation and orchestration are performed using:
 
-### 📡 Monitoring
-
-*   **Amazon CloudWatch** – Metrics and logs monitoring
+*   **Azure Data Factory** : for data ingestion and pipeline automation
     
-*   **Amazon SNS** – Notifications and alerts
+*   **Azure Functions** : for event-driven data processing
     
-*   **Amazon EventBridge** – Event-driven integration
+*   **Azure Event Hub** : for real-time data streaming and event handling
     
 
-### ⚙️ API Layer
+Processed and refined data is then stored and made available for advanced analytics.
 
-*   **Amazon API Gateway** – Secure API exposure
+### **🔹 Value Layer**
+
+The processed data is analyzed and enriched using:
+
+*   **Azure Synapse Analytics** : for data warehousing and big data analytics
     
-*   **AWS AppSync** – Managed GraphQL API for real-time data
+*   **Synapse SQL Serverless Pool** : for on-demand querying
     
-*   **AWS Lambda** – Backend logic execution
+*   **Azure Machine Learning Service** : for building predictive and analytical models
     
-*   **AWS Cognito** – Authentication and user management
+
+### **🔹 Monitoring**
+
+System health, performance, and event tracking are maintained through:
+
+*   **Azure Monitor** : for real-time monitoring and alerting
     
-*   **Amazon DynamoDB** – Fast and scalable NoSQL database
+*   **Azure Notification Hub** : for sending alerts and notifications
+    
+*   **Azure Event Grid** : for event-based automation and integration
+    
+
+### **🔹 API Layer**
+
+Data and analytics results are exposed securely via:
+
+*   **Azure API Management** : for managing and publishing APIs
+    
+*   **Azure Functions** : for custom logic and serverless API execution
+    
+*   **Azure Active Directory B2C** : for secure user authentication
+    
+*   **Azure Cosmos DB** : for scalable, globally distributed data storage
+    
+
+### **🔹 Application Layer**
+
+Finally, **Azure App Services** hosts the end-user applications that consume and visualize the processed data through APIs, providing a seamless and scalable user experience.
