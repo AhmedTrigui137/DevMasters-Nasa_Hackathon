@@ -33,7 +33,7 @@ Cosmic Health Navigator est une plateforme de surveillance environnementale avan
 - **Framer Motion 12.23.22** - Animations et transitions
 - **Lucide React** - Icônes modernes
 
-##☁️ **Infrastructure Overview**
+☁️ **Infrastructure Overview**
 ------------------------------
 
 This architecture showcases a complete Azure-based data processing and analytics pipeline designed to collect, store, transform, analyze, and serve environmental data from multiple scientific sources.
