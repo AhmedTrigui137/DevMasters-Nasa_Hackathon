@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 const NeuralNetwork: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,11 +34,11 @@ const NeuralNetwork: React.FC = () => {
     }
 
     // Create connections
-    nodes.forEach((node, i) => {
+    nodes.forEach((node, _i) => {
       const connectionCount = Math.floor(Math.random() * 3) + 1;
       for (let j = 0; j < connectionCount; j++) {
         const targetIndex = Math.floor(Math.random() * nodeCount);
-        if (targetIndex !== i && !node.connections.includes(targetIndex)) {
+        if (targetIndex !== _i && !node.connections.includes(targetIndex)) {
           node.connections.push(targetIndex);
         }
       }
@@ -67,7 +66,7 @@ const NeuralNetwork: React.FC = () => {
       // Draw connections
       ctx.strokeStyle = 'rgba(139, 92, 246, 0.2)';
       ctx.lineWidth = 1;
-      nodes.forEach((node, i) => {
+      nodes.forEach((node) => {
         node.connections.forEach(connectionIndex => {
           const target = nodes[connectionIndex];
           const distance = Math.sqrt(

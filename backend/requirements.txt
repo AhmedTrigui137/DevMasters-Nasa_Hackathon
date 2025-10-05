@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+# Pin pydantic and pydantic-core to matching versions to avoid runtime mismatches
+pydantic==2.11.9
+pydantic-core==2.33.2
+sqlmodel
+sqlalchemy
+asyncpg
+python-dotenv
+alembic
+

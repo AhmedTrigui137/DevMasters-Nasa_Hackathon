@@ -1,4 +1,4 @@
-import { EnvironmentalData, FilterState, AgeGroup, AsthmaSeverity, RiskZone } from '../types';
+import { EnvironmentalData, FilterState, RiskZone } from '../types';
 import { ageGroups, asthmaSeverities } from '../data/mockData';
 
 export const calculateRiskScore = (

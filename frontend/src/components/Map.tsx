@@ -6,7 +6,6 @@ import { RiskZone, FilterState } from "../types";
 import { getRiskColor } from "../utils/riskCalculation";
 import {
   Satellite,
-  Zap,
   Eye,
   Activity,
   AlertTriangle,
@@ -26,7 +25,7 @@ declare global {
 
 interface MapProps {
   riskZones: RiskZone[];
-  filters: FilterState;
+  filters?: FilterState;
 }
 
 const MapUpdater: React.FC<{
@@ -51,7 +50,7 @@ const MapUpdater: React.FC<{
   return null;
 };
 
-const Map: React.FC<MapProps> = ({ riskZones, filters }) => {
+const Map: React.FC<MapProps> = ({ riskZones }) => {
   const [selectedZone, setSelectedZone] = useState<RiskZone | null>(null);
   const [map, setMap] = useState<any>(null);
   const markersRef = useRef<any[]>([]);
@@ -143,9 +142,7 @@ const Map: React.FC<MapProps> = ({ riskZones, filters }) => {
         }).addTo(map);
 
         marker.bindTooltip(
-          `🚨 ${zone.name}<br/>Danger Zone - Risk: ${Math.round(
-            zone.riskScore
-          )}/100`,
+          `🚨 ${zone.name}<br/>Danger Zone - Risk: ${Math.round(zone.riskScore)}/100`,
           {
             permanent: false,
             direction: "top",
@@ -202,7 +199,7 @@ const Map: React.FC<MapProps> = ({ riskZones, filters }) => {
   }, [map, riskZones]);
 
   const getRiskDescription = (zone: RiskZone): string => {
-    const score = Math.round(zone.riskScore);
+  // const score = Math.round(zone.riskScore);
     switch (zone.riskLevel) {
       case "low":
         return `🌟 Optimal conditions for space exploration`;
@@ -501,7 +498,7 @@ const Map: React.FC<MapProps> = ({ riskZones, filters }) => {
         )}
       </AnimatePresence>
       {/* Custom CSS for tooltips */}
-      <style jsx global>{`
+      <style>{`
         .cosmic-tooltip {
           background: linear-gradient(
             135deg,
