@@ -9,10 +9,13 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      external: ['three'],
       output: {
+        globals: {
+          three: 'THREE',
+        },
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
-            if (id.includes('three')) return 'three-vendor';
             if (id.includes('react') || id.includes('react-dom') || id.includes('@react-three')) return 'react-vendor';
             return 'vendor';
           }

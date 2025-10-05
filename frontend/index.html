@@ -7,7 +7,9 @@
     <title>Asthma Risk Mapping App</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <div id="root"></div>
+  <!-- Load three.js from CDN to keep bundle size smaller; version must match package.json -->
+  <script src="https://unpkg.com/three@0.180.0/build/three.min.js" defer></script>
+  <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

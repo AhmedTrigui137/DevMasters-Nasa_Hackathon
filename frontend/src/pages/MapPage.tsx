@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import Map from '../components/Map';
 import FilterSidebar from '../components/FilterSidebar';
-import ThreeBackground from '../components/ThreeBackground';
-import NeuralNetwork from '../components/NeuralNetwork';
+const ThreeBackground = React.lazy(() => import('../components/ThreeBackground'));
+const NeuralNetwork = React.lazy(() => import('../components/NeuralNetwork'));
 import Card3D from '../components/Card3D';
 import { FilterState, RiskZone } from '../types';
 import { environmentalData } from '../data/mockData';
@@ -64,8 +64,12 @@ const MapPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex relative overflow-hidden">
-      <ThreeBackground />
-      <NeuralNetwork />
+      <Suspense fallback={null}>
+        <ThreeBackground />
+      </Suspense>
+      <Suspense fallback={null}>
+        <NeuralNetwork />
+      </Suspense>
 
       <div className="flex-shrink-0">
         <FilterSidebar
